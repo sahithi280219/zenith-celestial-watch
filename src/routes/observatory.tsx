@@ -34,6 +34,11 @@ function Observatory() {
     <div className="relative h-screen w-screen overflow-hidden">
       <Starfield density={0.6} parallax={false} />
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-20" />
+      {/* Ambient cinematic glows */}
+      <div className="ambient-cyan -left-40 top-10" />
+      <div className="ambient-purple -right-40 bottom-10" />
+      <div className="ambient-cyan left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-40" />
+
 
       <div className="relative grid h-full w-full grid-rows-[auto_1fr_auto] gap-3 p-3">
         <CommandBar />
