@@ -34,6 +34,11 @@ function Observatory() {
     <div className="relative h-screen w-screen overflow-hidden">
       <Starfield density={0.6} parallax={false} />
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-20" />
+      {/* Ambient cinematic glows */}
+      <div className="ambient-cyan -left-40 top-10" />
+      <div className="ambient-purple -right-40 bottom-10" />
+      <div className="ambient-cyan left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-40" />
+
 
       <div className="relative grid h-full w-full grid-rows-[auto_1fr_auto] gap-3 p-3">
         <CommandBar />
@@ -68,15 +73,27 @@ function Observatory() {
             <div className="pointer-events-none absolute bottom-4 right-4 flex items-center gap-2 font-mono text-[10px] tracking-widest">
               <span className="h-1.5 w-1.5 rounded-full bg-success animate-blink" /> TELEMETRY OK
             </div>
-            {/* Corner HUD brackets */}
+            {/* Corner HUD brackets — dramatic */}
             {["top-2 left-2", "top-2 right-2", "bottom-2 left-2", "bottom-2 right-2"].map((p) => (
-              <span key={p} className={`pointer-events-none absolute h-4 w-4 border-cyan/60 ${p}`} style={{
-                borderTopWidth: p.includes("top") ? 1 : 0,
-                borderBottomWidth: p.includes("bottom") ? 1 : 0,
-                borderLeftWidth: p.includes("left") ? 1 : 0,
-                borderRightWidth: p.includes("right") ? 1 : 0,
-              }} />
+              <span
+                key={p}
+                className={`pointer-events-none absolute h-6 w-6 ${p}`}
+                style={{
+                  borderColor: "oklch(0.88 0.18 210 / 0.85)",
+                  filter: "drop-shadow(0 0 6px oklch(0.88 0.18 210 / 0.7))",
+                  borderTopWidth: p.includes("top") ? 2 : 0,
+                  borderBottomWidth: p.includes("bottom") ? 2 : 0,
+                  borderLeftWidth: p.includes("left") ? 2 : 0,
+                  borderRightWidth: p.includes("right") ? 2 : 0,
+                }}
+              />
             ))}
+            {/* Edge accent lines */}
+            <span className="pointer-events-none absolute left-1/2 top-0 h-px w-24 -translate-x-1/2"
+              style={{ background: "linear-gradient(90deg, transparent, oklch(0.88 0.18 210 / 0.9), transparent)" }} />
+            <span className="pointer-events-none absolute left-1/2 bottom-0 h-px w-24 -translate-x-1/2"
+              style={{ background: "linear-gradient(90deg, transparent, oklch(0.6 0.22 305 / 0.9), transparent)" }} />
+
           </div>
 
           {/* RIGHT */}
