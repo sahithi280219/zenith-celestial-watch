@@ -67,12 +67,12 @@ export function TelemetryCharts() {
 
 function Card({ title, value, unit, accent, children }: { title: string; value: string; unit: string; accent: string; children: React.ReactNode }) {
   return (
-    <div className="glass-panel flex flex-col p-3">
-      <div className="flex items-center justify-between">
-        <span className="font-display text-[10px] tracking-[0.25em] text-muted-foreground">{title}</span>
-        <span className="font-mono text-xs" style={{ color: accent, textShadow: `0 0 8px ${accent}80` }}>{value}<span className="ml-1 text-muted-foreground">{unit}</span></span>
+    <div className="glass-panel flex min-w-0 flex-col p-3">
+      <div className="flex min-w-0 items-baseline justify-between gap-2">
+        <span className="font-display text-[9px] tracking-[0.18em] text-muted-foreground truncate">{title}</span>
+        <span className="font-mono text-xs shrink-0 whitespace-nowrap" style={{ color: accent, textShadow: `0 0 8px ${accent}80` }}>{value}<span className="ml-1 text-muted-foreground">{unit}</span></span>
       </div>
-      <div className="mt-1 h-[110px] flex-1">{children}</div>
+      <div className="mt-1 h-[110px] flex-1 min-w-0">{children}</div>
     </div>
   );
 }
